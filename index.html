@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AJS-IDE - The Official Android.js Code Editor</title>
+  <style>
+    /* Global styles */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+      color: #f0f0f0;
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(120deg, #ff512f, #dd2476);
+      animation: gradient-move 8s infinite;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    @keyframes gradient-move {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      line-height: 1.2;
+    }
+
+    section {
+      padding: 40px 20px;
+    }
+
+    /* Card styles */
+    .card {
+      background: linear-gradient(45deg, #232526, #414345);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      margin: 20px 0;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .card h3 {
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
+    }
+
+    /* Button styles */
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 5px;
+      background: linear-gradient(90deg, #ff5f6d, #ffc371);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: linear-gradient(90deg, #ffc371, #ff5f6d);
+    }
+
+    /* Footer styles */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: linear-gradient(135deg, #283048, #859398);
+      color: #ffffff;
+    }
+
+    footer a {
+      color: #ff9a00;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    footer a:hover {
+      color: #ffd700;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>AJS-IDE</h1>
+    <p>The Official Code Editor for Android.js</p>
+  </header>
+
+  <section>
+    <h2>What is AJS-IDE?</h2>
+    <div class="card">
+      <h3>A Revolutionary Code Editor</h3>
+      <p>The AJS-IDE is a fully-featured code editor designed specifically for Android.js developers. With advanced features like autosave, autofinish, and seamless integration with Android.js, it provides an unparalleled development experience on your Android device.</p>
+    </div>
+    <div class="card">
+      <h3>Seamless Integration</h3>
+      <p>Switch effortlessly between your code and your Android.js console. AJS-IDE is designed to work hand-in-hand with Android.js for fast, efficient coding on the go.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Features of AJS-IDE</h2>
+    <div class="card">
+      <ul>
+        <li>Autosave: Never lose your work.</li>
+        <li>Autofinish: Speed up coding with intelligent suggestions.</li>
+        <li>Syntax Highlighting: Supports JavaScript and more.</li>
+        <li>File Explorer: Navigate your projects easily.</li>
+        <li>Live Debugging: Debug your Android.js applications in real-time.</li>
+        <li>Customizable Themes: Choose from light, dark, or custom themes.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>System Requirements</h2>
+    <div class="card">
+      <h3>Minimum Requirements</h3>
+      <ul>
+        <li>100MB of storage</li>
+        <li>500MB of RAM</li>
+        <li>Android.js installed on your device</li>
+        <li>Android 11 or higher</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>How to Install</h2>
+    <div class="card">
+      <h3>Simple Steps</h3>
+      <ol>
+        <li>Download the AJS-IDE APK from the <a href="releases.html" class="btn">Releases</a>.</li>
+        <li>Install the APK on your Android device.</li>
+        <li>Launch the AJS-IDE and link it with your Android.js setup.</li>
+        <li>Start coding and enjoy the powerful features!</li>
+      </ol>
+    </div>
+  </section>
+
+  <footer>
+    <p>Created with ❤️ by <strong>JTDMedia</strong>. Visit the <a href="https://github.com/JTDMedia">official GitHub</a> for more information.</p>
+  </footer>
+</body>
+</html>
