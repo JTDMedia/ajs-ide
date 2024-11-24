@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AJS-IDE Releases</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+      color: #f0f0f0;
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(120deg, #ff512f, #dd2476);
+      animation: gradient-move 8s infinite;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    @keyframes gradient-move {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1, h2 {
+      margin: 0;
+      line-height: 1.2;
+    }
+
+    section {
+      padding: 40px 20px;
+    }
+
+    .release-card {
+      background: linear-gradient(45deg, #232526, #414345);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      margin: 20px 0;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .release-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .release-card h3 {
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 5px;
+      background: linear-gradient(90deg, #ff5f6d, #ffc371);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+      margin-top: 10px;
+    }
+
+    .btn:hover {
+      background: linear-gradient(90deg, #ffc371, #ff5f6d);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>AJS-IDE Releases</h1>
+    <p>Download the latest APKs and updates for AJS-IDE</p>
+  </header>
+
+  <section id="releases-section">
+    <h2>Available Releases</h2>
+    <p>Fetching the latest releases from GitHub...</p>
+  </section>
+
+  <script>
+    // GitHub API URL for the repository's releases
+    const GITHUB_API_URL = "https://api.github.com/repos/YOUR_USERNAME/YOUR_REPOSITORY/releases";
+
+    // Fetch and display releases
+    async function fetchReleases() {
+      const releasesSection = document.getElementById('releases-section');
+      try {
+        const response = await fetch(GITHUB_API_URL);
+        const releases = await response.json();
+
+        // Clear the placeholder text
+        releasesSection.innerHTML = '';
+
+        // Display each release as a card
+        releases.forEach(release => {
+          const card = document.createElement('div');
+          card.className = 'release-card';
+
+          // Create card content
+          const title = document.createElement('h3');
+          title.textContent = release.name || "Unnamed Release";
+
+          const description = document.createElement('p');
+          description.textContent = release.body || "No description available.";
+
+          const downloadLink = document.createElement('a');
+          downloadLink.className = 'btn';
+          downloadLink.href = release.assets[0]?.browser_download_url || '#';
+          downloadLink.textContent = release.assets[0]?.name || 'Download APK';
+          downloadLink.target = '_blank';
+
+          // Append content to card
+          card.appendChild(title);
+          card.appendChild(description);
+          card.appendChild(downloadLink);
+
+          // Append card to section
+          releasesSection.appendChild(card);
+        });
+      } catch (error) {
+        releasesSection.innerHTML = `<p style="color: red;">Error fetching releases: ${error.message}</p>`;
+      }
+    }
+
+    // Load releases on page load
+    fetchReleases();
+  </script>
+</body>
+</html>
